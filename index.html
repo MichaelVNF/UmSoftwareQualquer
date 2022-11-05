@@ -3,6 +3,8 @@
 
 	<head>
 		<meta name="viewport" content="width=device-width" charset="utf8">
+		<meta name="theme-color" content="#000000" />
+
 		<title>UM SOFTWARE QUALQUER</title>
 
 		<style>
@@ -87,7 +89,7 @@
 				divPrincipal = document.getElementById('divPrincipal');
 				divResposta = document.getElementById('divResposta');
 				txtNome = document.getElementById('txtNome');
-				cont = 9; //cont = 1 original | 9 para ir direto pro final
+				cont = 1; //cont = 1 original | 9 para ir direto pro final
 			}
 
 			var erro = 0;
@@ -96,6 +98,7 @@
 				if (txtNome.value.toUpperCase() == 'JÉSSICA' || txtNome.value.toUpperCase() == 'JESSICA') {
 
 					document.title = '10 COISAS SOBRE VOCÊ!';
+					document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#1152d4');
 					document.getElementById('corpo').style.color = '#d9f2fa';
 					document.getElementById('corpo').style.backgroundColor = '#14c4ff';
 					divPrincipal.style.backgroundColor = '#1152d4';
