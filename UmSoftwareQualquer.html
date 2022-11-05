@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width" charset="utf8">
+		<title>UM SOFTWARE QUALQUER</title>
+
+		<style>
+			body {
+				font-family: Gill Sans, sans-serif;
+				color: black;
+				background-color: rgb(151, 151, 151);
+				margin: 0;
+				font-size: 120%;
+				font-family: Lucida Sans Unicode;
+			}
+
+			button {
+				font-family: Gill Sans, sans-serif;
+				font-size: 60%;
+				padding: 5px;
+				background-color: rgb(161, 161, 161);
+				color: #fff;
+				border-radius: 5px;
+				font-weight: bold;
+			}
+
+			button:hover {
+				font-family: Gill Sans, sans-serif;
+				font-size: 62%;
+				padding: 4px;
+				background-color: rgb(90, 90, 90);
+				color: #fff;
+				border-radius: 5px;
+				font-weight: bold;
+			}
+
+			input {
+				font-family: Gill Sans, sans-serif;
+				font-size: 80%;
+				background-color: rgb(161, 161, 161);
+				color: #fff;
+				border-radius: 5px;
+			}
+
+			select {
+				color: #333;
+			}
+
+			#divPrincipal {
+				background-color: white;
+				margin: 2% 10% 2% 10%;
+				padding: 1px;
+				border-radius: 5px;
+				box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+			}
+
+			#divResposta {
+				background-color: white;
+				margin: 2% 10% 2% 10%;
+				padding: 2px;
+				border-radius: 5px;
+				box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+			}
+
+			.emoji {
+				color: #fffc66;
+			}
+
+			.heart {
+				color: #ff4d4d;
+			}
+		</style>
+
+		<script>
+
+			var divPrincipal;
+			var divResposta;
+			var txtNome;
+			var resp;
+			var cont;
+			var compl1;
+			var compl2;
+			var ult;
+
+			window.onload = function () {
+				divPrincipal = document.getElementById('divPrincipal');
+				divResposta = document.getElementById('divResposta');
+				txtNome = document.getElementById('txtNome');
+				cont = 9; //cont = 1 original | 9 para ir direto pro final
+			}
+
+			var erro = 0;
+			function enviarNome() {
+
+				if (txtNome.value.toUpperCase() == 'JÉSSICA' || txtNome.value.toUpperCase() == 'JESSICA') {
+
+					document.title = '10 COISAS SOBRE VOCÊ!';
+					document.getElementById('corpo').style.color = '#d9f2fa';
+					document.getElementById('corpo').style.backgroundColor = '#14c4ff';
+					divPrincipal.style.backgroundColor = '#1152d4';
+					divResposta.style.backgroundColor = '#1152d4';
+					divResposta.innerHTML = '<b>Jéssica</b>... Humm! Bonito seu nome, vamos ver se é você mesmo!?<br><br><button id="btnAvancar" onclick="exibirTeste1()"><b>Avançar</b></button>';
+				} 
+				else
+					if (erro == 0) {
+						divResposta.innerHTML = 'Nãooo, não é esse...<br><b>Dica:</b> É um nome de uma mulher!';
+						erro++;
+					}
+				else
+					if (erro == 1) {
+						divResposta.innerHTML = 'Nãooo, também não é esse...<br><b>Dica:</b> O nome significa "observadora" e "comtemplada por Deus"!';
+						erro++;
+					}
+				else
+					if (erro == 2) {
+						divResposta.innerHTML = 'Nãoooooo, nãooo...<br><b>Dica:</b> Seus olhos tem traços indígenas!';
+						erro++;
+					}
+				else
+					if (erro == 3) {
+						divResposta.innerHTML = 'Noooh, Noooh hahah...<br><b>Dica:</b> O nome começa com "J"!';
+						erro = 0;
+					}
+			}
+
+			function exibirTeste1() {
+				exibirTestePadrao("Qual é sua cor favorita?", "Azul", "Rosa", "Amarelo", "Goood! Sabia que ", "Azul", " simboliza lealdade, confiança, tranquilidade e fé!?", false);
+			}
+
+			function exibirTeste2() {
+				exibirTestePadrao("Qual lugar você escolheria para morar?", "JD. Dávila", "Vila Piauí", "Estados Unidos", "Correetooo! Ir para o ", "Estados Unidos", "é seu desejo desde criança. Partiu Disney! Hehehe...Vamos a mais uma!?", false);
+			}
+			
+			function exibirTeste3() {
+				exibirTestePadrao("Você tem uma tattoo no pulso que são 3 corações e representa?", "Vida Loka", "Café", "Santíssima Trindade", "Com certeza '", "Santíssima Trindade", "' (Pai, Filho e Espírito Santo) foi o melhor significado de uma tatuagem que já ouvi falar até hoje <b class='emoji'>:o</b> achei muito original! <b class='heart'>S2</b>", false);
+			}
+			
+			function exibirTeste4() {
+				exibirTestePadrao("Um estilo de filme?", "Documentário", "Faroeste", "Terror", "Boooh! ", "Terror", " é o estilo de filme que você super ama! Além de assistir filmes de terror sem medo, não nega nenhuma montanha russa ou tobogã! Essa mina é corajoooosaaaaa! ", false);
+			}
+			
+			function exibirTeste5() {
+				exibirTestePadrao("Agora, uma série...?", "The Walking Dead", "Black Mirror", "Rocky Balboa", "Yeeeahhh! Com muitos zumbis '", "The Walking Dead", "' é a série que vc assiste enquanto come e fica ansiosa a cada novo capítulo! Ainda bem que controla o tempo para assistir, senão já viu <b class='emoji'>:)</b> hahahah ", false);
+			}
+			
+			function exibirTeste6() {
+				exibirTestePadrao("Quem irá se formar professor(a) logo +?", "Profº Girafales", "Profª Helena (do Carrosel)", "Profª Jéssica Cullen", "Olhaaaa elaaa a tal da ", "Profª Jéssica Cullen", " adorada pelos baixinhos! Ela é inteligente e docê, mas também é brava quando precisa! <b class='heart'>S2</b> heheh", false);
+			}
+			
+			function exibirTeste7() {
+				exibirTestePadrao("Uma palavra em inglês?", "Rebolation", "Together", "Bamboozle", "Nice! Essa foi sua palavra escolhida, your favorite word! Falar '", "Together", "' soa gostoso rsrs, de fato é uma linda palavra e sua tradução/significado é amplo e pode representar união! <b class='heart'>S2</b>", false);
+			}
+			
+			function exibirTeste8() {
+				exibirTestePadrao("Em um futuro próximo a advogada Dra. Jéssica Cullen, entra na concessionária da Porshe para escolher seu carrão. Que cor ela escolheria?", "Preto ou Branco", "Amarelo ou Verde", "Laranja ou Prata", "Vruuuummmmm! Que seja  ", "Preto ou Branco", " o que importa são os super rolês que te esperam! hahah Quero te ver habilitada logo para andarmos de carro e moto por aí! hahah", false);
+			}
+
+			//TODO: CONTINUAR EDITANDO A PARTIR DAQUI
+			//TODO: PEGUNTAR SOBRE ALGO E CITAR UMA FRASE BÍBLICA
+			//TODO: PEGUNTAR SOBRE MÚSICA
+			function exibirTeste9() {
+				exibirTestePadrao("Quem vai passar no ENEM este ano?", "Albert Einstein", "Stephen Hawking", "Felix", "Vai l�", "Felix", " faz teu nome garota! At� porque voc� foi a primeira pessoa que ouvi falar que estava estudando progress�o aritm�tica.", false);
+			}
+
+			function exibirTeste10() {
+				exibirTestePadrao("Livro mais pessismista que j� leu?", "M�quina do Mundo", "50 tons de cinza", "O pequeno pr�ncipe", "", "M�quina do Mundo", ', de Carlos Drummond de Andrade, enquanto eu pesquisava sobre ele, descobri diversas frases interessantes, essa foi a que me chamou mais aten��o: <br>"� pr�prio da mulher o sorriso que nada promete e permite tudo imaginar". <br>Posso complementa-l� com outra boa frase: <br>"Perder tempo com coisas que n�o interessam, priva-nos de descobrir coisas interessantes."', true);
+			}
+
+			function exibirTestePadrao(pergunta, opcao1, opcao2, opcao3, complemento1, resposta, complemento2, ultima) {
+
+				divPrincipal.innerHTML = '<h2>' + cont + ') ' + pergunta + '</h2>';
+				divResposta.innerHTML = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"/>' + opcao1;
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"/>' + opcao2;
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao3 + '" id="rb3"/>' + opcao3;
+				divResposta.innerHTML += '<br><br><button id="btnResponder" onclick="responder()">Responder</button>';
+				resp = resposta
+				compl1 = complemento1;
+				compl2 = complemento2;
+				ult = ultima;
+			}
+
+			function responder() {
+				var rb1 = document.getElementById('rb1');
+				var rb2 = document.getElementById('rb2');
+				var rb3 = document.getElementById('rb3');
+
+				if ((rb1.checked == true && rb1.value == resp) || (rb2.checked == true && rb2.value == resp) || (rb3.checked == true && rb3.value == resp)) {
+
+					divResposta.innerHTML = compl1 + " " + resp + " " + compl2;
+
+					if (!ult) {
+						cont++;
+						divResposta.innerHTML += '<br><br><button id="btnAvancar" onclick="exibirTeste' + cont + '()">Avançar</button>';
+					}
+					else {
+						divResposta.innerHTML += '<br><button id="btnFinalizar" onclick="preFinalizar()">Finalizar</button>';
+					}
+
+				}
+				else {
+					alert('Ops! Tente outra resposta! rs');
+				}
+			}
+
+			function preFinalizar() {
+
+				opcao1 = 'Sim';
+				opcao2 = 'Não';
+				divPrincipal.innerHTML = '<h2>Vamos a última questão, está preparada sim ou não?</h2>';
+				divResposta.innerHTML = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"/>' + opcao1;
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"/>' + opcao2;
+				divResposta.innerHTML += '<br><button id="btnResponder" onclick="preResponderFinal()">Responder</button>';
+			}
+
+			function preResponderFinal() {
+
+				var rb1 = document.getElementById('rb1');
+				var rb2 = document.getElementById('rb2');
+
+				if (rb1.checked == true) {
+					divResposta.innerHTML = '<div id="respostaFinal"></div>';
+					var divRespostaFinal = document.getElementById("respostaFinal");
+					divRespostaFinal.innerHTML = '<hr>';
+
+					divRespostaFinal.innerHTML = 'Se você chegou atá aqui, quer dizer que é a pessoa certa. Bora para a pergunta!';
+					divResposta.innerHTML += '<br><button id="btnResponder" onclick="finalizar()">Bora!</button>';
+
+				}
+				else
+					if (rb2.checked == true) {
+
+						if (confirm("Tem certeza mesmo?") && confirm("Tem absoluta certeza disso?") && confirm("Deseja realmente não ver o final? :(")) {
+							location.reload();
+						}
+					}
+			}
+
+			function finalizar() {
+
+				opcao1 = 'Sim';
+				opcao2 = 'Claro';
+				opcao3 = 'Hoje mesmo';
+				opcao4 = 'Amanhã';
+				opcao5 = 'Pare de me encher o saco! kkk';
+
+				divPrincipal.innerHTML = '<h2>Você gostaria de sair comigo?</h2>';
+				divResposta.innerHTML  = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"/>' + opcao1;
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"/>' + opcao2;
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao3 + '" id="rb3"/>' + opcao3;
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao4 + '" id="rb4"/>' + opcao4;
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao5 + '" id="rb5"/>' + opcao5;
+				divResposta.innerHTML += '<br><button id="btnResponder" onclick="responderFinal()">Responder</button>';
+			}
+
+			function responderFinal() {
+
+				var rb1 = document.getElementById('rb1');
+				var rb2 = document.getElementById('rb2');
+				var rb3 = document.getElementById('rb3');
+				var rb4 = document.getElementById('rb4');
+				var rb5 = document.getElementById('rb5');
+
+				var selecionou = false;
+				divResposta.innerHTML += '<div id="respostaFinal"></div>';
+				var divRespostaFinal = document.getElementById("respostaFinal");
+				divRespostaFinal.innerHTML = '<hr>';
+
+				if (rb1.checked == true) {
+
+					divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb1.value + '" :)';
+					divRespostaFinal.innerHTML += '<marquee>Aeeeeeeeeeeeeeeeeeee!!! \\o/ \\o/ \\o/ \\o/ \\o/ </marquee>';
+					divRespostaFinal.innerHTML += '<br>Vamos combinar certinho desta vez... Que dia é melhor pra ti? Que Horas? Aonde? - chama no ZapZaps rsrs';
+					selecionou = true;
+				}
+				else
+					if (rb2.checked == true) {
+
+						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb2.value + '" :D';
+						divRespostaFinal.innerHTML += '<marquee>Ihuuuuuuuuuuuuuuuuuuuuuuu!!! I am happy with your decision! </marquee>';
+						divRespostaFinal.innerHTML += '<br>Quando vamos? Que dia is the best for you? Gosta de Outback? Mc Donald\'s? Giraffas? Hahah - chama no ZapZaps kkkkkk';
+						selecionou = true;
+					}
+				else
+					if (rb3.checked == true) {
+						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb3.value + '" :)';
+						divRespostaFinal.innerHTML += '<marquee>Uhuuuuuuuuuuuuuuuuuuuuuuuuuuuuu!!! \\m/ \\o/ To felizão!!!! Aeeeeeeeeeeeeeeeeeee!!!!!!! \\o/ \\o/ \\o/ \\o/ \\o/  </marquee>';
+						divRespostaFinal.innerHTML += '<br>Então, chama no Zap bebê, onde você quer ir? Cineminha? kkkkkk';
+						selecionou = true;
+					}
+				else
+					if (rb4.checked == true) {
+						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb4.value + '" :)';
+						divRespostaFinal.innerHTML += '<marquee>Ohhh Yeahhhhh!!! \\o/ Que Horas? Onde?</marquee>';
+						divRespostaFinal.innerHTML += '<br>Acho que da tempo de fazer o bigode kkkk Quer ver um filmezinho de terror? :o hahah';
+						selecionou = true;
+					}
+				else
+					if (rb5.checked == true) {
+						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb5.value + '" :(';
+						divRespostaFinal.innerHTML += '<marquee>:(';
+						divRespostaFinal.innerHTML += '<br>Foi mals qualquer coisa, as vezes me empolgo kkk tá de boas... Não vou mais te encher o saco, se precisar sabe onde me achar ;)';
+						selecionou = true;
+					}
+
+				if (selecionou) {
+					divRespostaFinal.innerHTML += "<hr><button id='btnReiniciar' onclick='voltarInicio()'>Reiniciar</button>";
+					divRespostaFinal.innerHTML += '<hr><b><p align="justify">*Observação: Esta aplicação ainda não possui conexão com a Internet, logo não saberei o que respondeu ao final. Diante disso, peço por gentileza que me envie uma captura de tela de sua resposta para o meu WhatsApp. Obrigadooo!</p></b>';
+					//divRespostaFinal.innerHTML += '<hr>Desenvolido por <i><b>MaxMurdock\'s Software Brazil®<</b></i>';
+					divRespostaFinal.innerHTML += '<hr>Desenvolvido por <i><b>Michael\'s Software Brazil®</b></i>';
+				}
+				else {
+					alert('Escolha uma resposta!');
+				}
+			}
+
+			function voltarInicio() {
+				var alertConfirm = confirm("Deseja realmente voltar ao início?");
+
+				if (alertConfirm) {
+					location.reload();
+				}
+			}		
+
+		</script>
+	</head>
+
+	<body id="corpo">
+
+		<center>
+			<div id="divPrincipal">
+				<h2>Digite o primeiro nome que vier em sua cabeça: </h2>
+				<input type="text" id="txtNome" placeholder="Digite aqui..."/>
+
+				<button id="btnEnviar" onclick="enviarNome()"><b>Enviar</b></button>
+			</div>
+
+			<div id="divResposta">
+			</div>
+
+		</center>
+	</body>
+</html>
