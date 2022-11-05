@@ -173,9 +173,9 @@
 			function exibirTestePadrao(pergunta, opcao1, opcao2, opcao3, complemento1, resposta, complemento2, ultima) {
 
 				divPrincipal.innerHTML = '<h2>' + cont + ') ' + pergunta + '</h2>';
-				divResposta.innerHTML = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"/>' + opcao1;
-				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"/>' + opcao2;
-				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao3 + '" id="rb3"/>' + opcao3;
+				divResposta.innerHTML  = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"> <label for="rb1">' + opcao1 + "</label>";
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"> <label for="rb2">' + opcao2 + "</label>";
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao3 + '" id="rb3"> <label for="rb3">' + opcao3 + "</label>";
 				divResposta.innerHTML += '<br><br><button id="btnResponder" onclick="responder()">Responder</button>';
 				resp = resposta
 				compl1 = complemento1;
@@ -248,11 +248,11 @@
 				opcao5 = 'Pare de me encher o saco! kkk';
 
 				divPrincipal.innerHTML = '<h2>Você gostaria de sair comigo?</h2>';
-				divResposta.innerHTML  = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"/>' + opcao1;
-				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"/>' + opcao2;
-				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao3 + '" id="rb3"/>' + opcao3;
-				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao4 + '" id="rb4"/>' + opcao4;
-				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao5 + '" id="rb5"/>' + opcao5;
+				divResposta.innerHTML  = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"/> <label for="rb1">' + opcao1 + "</label>";
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"/> <label for="rb2">' + opcao2 + "</label>";
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao3 + '" id="rb3"/> <label for="rb3">' + opcao3 + "</label>";
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao4 + '" id="rb4"/> <label for="rb4">' + opcao4 + "</label>";
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao5 + '" id="rb5"/> <label for="rb5">' + opcao5 + "</label>";
 				divResposta.innerHTML += '<br><button id="btnResponder" onclick="responderFinal()">Responder</button>';
 			}
 
