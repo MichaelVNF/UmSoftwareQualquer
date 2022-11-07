@@ -8,6 +8,11 @@
 		<title>UM SOFTWARE QUALQUER</title>
 
 		<style>
+
+			html {
+				height: 100%;
+			}
+
 			body {
 				font-family: Gill Sans, sans-serif;
 				color: black;
@@ -15,6 +20,7 @@
 				margin: 0;
 				font-size: 120%;
 				font-family: Lucida Sans Unicode;
+				padding-top: 15px;
 			}
 
 			button {
@@ -44,7 +50,7 @@
 				color: #fff;
 				border-radius: 5px;
 			}
-
+			
 			select {
 				color: #333;
 			}
@@ -55,6 +61,7 @@
 				padding: 1px;
 				border-radius: 5px;
 				box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+				padding: 10px;
 			}
 
 			#divResposta {
@@ -63,6 +70,8 @@
 				padding: 2px;
 				border-radius: 5px;
 				box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+				padding: 10px;
+				visibility: hidden;
 			}
 
 			.emoji {
@@ -100,7 +109,8 @@
 					document.title = '10 COISAS SOBRE VOCÊ!';
 					document.querySelector('meta[name="theme-color"]').setAttribute('content',  '#f7a7fa');
 					document.getElementById('corpo').style.color = '#d9f2fa';
-					document.getElementById('corpo').style.backgroundColor = '#14c4ff';
+					document.getElementById('corpo').style.backgroundColor = '#14c4ff';					
+					document.getElementById('corpo').style.background = 'linear-gradient(0deg, rgba(247,167,250,1) 0%, rgba(20,196,255,1) 25%)';
 					divPrincipal.style.backgroundColor = '#1152d4';
 					divResposta.style.backgroundColor = '#1152d4';
 					divResposta.innerHTML = '<b>Jéssica</b>... Humm! Bonito seu nome, vamos ver se é você mesmo!?<br><br><button id="btnAvancar" onclick="exibirTeste1()"><b>Avançar</b></button>';
@@ -125,6 +135,7 @@
 						divResposta.innerHTML = 'Noooh, Noooh hahah...<br><b>Dica:</b> O nome começa com "J"!';
 						erro = 0;
 					}
+				divResposta.style.visibility = "visible"
 			}
 
 			function exibirTeste1() {
@@ -158,14 +169,13 @@
 			function exibirTeste8() {
 				exibirTestePadrao("Em um futuro próximo a advogada Dra. Jéssica Cullen, entra na concessionária da Porshe para escolher seu carrão. Que cor ela escolheria?", "Preto ou Branco", "Amarelo ou Verde", "Laranja ou Prata", "Vruuuummmmm! Que seja  ", "Preto ou Branco", " o que importa são os super rolês que te esperam! hahah Quero te ver habilitada logo para andarmos de carro e moto por aí! hahah", false);
 			}
+			
+			function exibirTeste9() {
+				exibirTestePadrao("Qual estilo de música mais te agrada?", "Bregaton", "Gospel", "Funk proibidão", "Além do estilo ", "Gospel", " você curte músicas Internacionais, Pop e HipHop, desde que as letras não sejam vulgares né!? hahahah E além disso tudo você ainda sabe dançar \\o/ Uma verdadeira TikToker <b class='emoji'>:)</b> This girl is complete!", false);
+			}
 
 			//TODO: CONTINUAR EDITANDO A PARTIR DAQUI
 			//TODO: PEGUNTAR SOBRE ALGO E CITAR UMA FRASE BÍBLICA
-			//TODO: PEGUNTAR SOBRE MÚSICA
-			function exibirTeste9() {
-				exibirTestePadrao("Quem vai passar no ENEM este ano?", "Albert Einstein", "Stephen Hawking", "Felix", "Vai l�", "Felix", " faz teu nome garota! At� porque voc� foi a primeira pessoa que ouvi falar que estava estudando progress�o aritm�tica.", false);
-			}
-
 			function exibirTeste10() {
 				exibirTestePadrao("Livro mais pessismista que j� leu?", "M�quina do Mundo", "50 tons de cinza", "O pequeno pr�ncipe", "", "M�quina do Mundo", ', de Carlos Drummond de Andrade, enquanto eu pesquisava sobre ele, descobri diversas frases interessantes, essa foi a que me chamou mais aten��o: <br>"� pr�prio da mulher o sorriso que nada promete e permite tudo imaginar". <br>Posso complementa-l� com outra boa frase: <br>"Perder tempo com coisas que n�o interessam, priva-nos de descobrir coisas interessantes."', true);
 			}
@@ -202,7 +212,7 @@
 
 				}
 				else {
-					alert('Ops! Tente outra resposta! rs');
+					alert('Ops! Tente outra resposta :)');
 				}
 			}
 
@@ -211,8 +221,8 @@
 				opcao1 = 'Sim';
 				opcao2 = 'Não';
 				divPrincipal.innerHTML = '<h2>Vamos a última questão, está preparada sim ou não?</h2>';
-				divResposta.innerHTML = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"/>' + opcao1;
-				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"/>' + opcao2;
+				divResposta.innerHTML  = '<input type="radio" name="resp" value="' + opcao1 + '" id="rb1"/> <label for="rb1">' + opcao1 + "</label>";
+				divResposta.innerHTML += '<input type="radio" name="resp" value="' + opcao2 + '" id="rb2"/> <label for="rb2">' + opcao2 + "</label>";
 				divResposta.innerHTML += '<br><button id="btnResponder" onclick="preResponderFinal()">Responder</button>';
 			}
 
@@ -271,7 +281,7 @@
 
 				if (rb1.checked == true) {
 
-					divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb1.value + '" :)';
+					divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb1.value + ' <b class="emoji">:)</b>';
 					divRespostaFinal.innerHTML += '<marquee>Aeeeeeeeeeeeeeeeeeee!!! \\o/ \\o/ \\o/ \\o/ \\o/ </marquee>';
 					divRespostaFinal.innerHTML += '<br>Vamos combinar certinho desta vez... Que dia é melhor pra ti? Que Horas? Aonde? - chama no ZapZaps rsrs';
 					selecionou = true;
@@ -279,21 +289,21 @@
 				else
 					if (rb2.checked == true) {
 
-						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb2.value + '" :D';
+						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb2.value + '" <b class="emoji">:D</b>';
 						divRespostaFinal.innerHTML += '<marquee>Ihuuuuuuuuuuuuuuuuuuuuuuu!!! I am happy with your decision! </marquee>';
 						divRespostaFinal.innerHTML += '<br>Quando vamos? Que dia is the best for you? Gosta de Outback? Mc Donald\'s? Giraffas? Hahah - chama no ZapZaps kkkkkk';
 						selecionou = true;
 					}
 				else
 					if (rb3.checked == true) {
-						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb3.value + '" :)';
+						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb3.value + '" <b class="emoji">:)</b>';
 						divRespostaFinal.innerHTML += '<marquee>Uhuuuuuuuuuuuuuuuuuuuuuuuuuuuuu!!! \\m/ \\o/ To felizão!!!! Aeeeeeeeeeeeeeeeeeee!!!!!!! \\o/ \\o/ \\o/ \\o/ \\o/  </marquee>';
 						divRespostaFinal.innerHTML += '<br>Então, chama no Zap bebê, onde você quer ir? Cineminha? kkkkkk';
 						selecionou = true;
 					}
 				else
 					if (rb4.checked == true) {
-						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb4.value + '" :)';
+						divRespostaFinal.innerHTML += '<br>Você escolheu: "' + rb4.value + '" <b class="emoji">:)</b>';
 						divRespostaFinal.innerHTML += '<marquee>Ohhh Yeahhhhh!!! \\o/ Que Horas? Onde?</marquee>';
 						divRespostaFinal.innerHTML += '<br>Acho que da tempo de fazer o bigode kkkk Quer ver um filmezinho de terror? :o hahah';
 						selecionou = true;
@@ -308,7 +318,7 @@
 
 				if (selecionou) {
 					divRespostaFinal.innerHTML += "<hr><button id='btnReiniciar' onclick='voltarInicio()'>Reiniciar</button>";
-					divRespostaFinal.innerHTML += '<hr><b><p align="justify">*Observação: Esta aplicação ainda não possui conexão com a Internet, logo não saberei o que respondeu ao final. Diante disso, peço por gentileza que me envie uma captura de tela de sua resposta para o meu WhatsApp. Obrigadooo!</p></b>';
+					divRespostaFinal.innerHTML += '<hr><b><p align="justify">*Observação: Esta aplicação ainda não possui conexão com banco de dados/internet, logo não saberei o que respondeu ao final. Diante disso, peço por gentileza que me envie uma captura de tela de sua resposta para o meu WhatsApp. Obrigadooo!</p></b>';
 					//divRespostaFinal.innerHTML += '<hr>Desenvolido por <i><b>MaxMurdock\'s Software Brazil®<</b></i>';
 					divRespostaFinal.innerHTML += '<hr>Desenvolvido por <i><b>Michael\'s Software Brazil®</b></i>';
 				}
